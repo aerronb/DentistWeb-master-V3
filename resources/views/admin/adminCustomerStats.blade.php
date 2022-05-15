@@ -12,10 +12,6 @@
             <div class="card">
                 <div class="card-header container-fluid">
                     <h4>Customer Statistics</h4>
-                    <form method="POST" action="/log_out">
-                        @csrf
-                        <button type="submit" class="btn btn-primary">Log-out</button>
-                    </form>
                 </div>
             </div>
 
@@ -69,7 +65,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Last Updated Booking:</h5>
                             @isset($lastUpdated)
-                                <p class="card-text">For: <b>{{$lastUpdated->name}}</b> on:
+                                <p class="card-text">For: <b>{{$lastUpdated->first_name}}</b> on:
                                     <b>{{$lastUpdated->date_of_appointment->format('d-M-Y')}}</b>
                                     at: <b>{{$lastUpdated->updated_at->format('d-M-Y G:i:s a')}}</b>
                             @endisset

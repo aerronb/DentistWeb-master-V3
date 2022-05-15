@@ -28,12 +28,14 @@ class HomeController extends Controller
     public function index()
     {
         $date = date('Y-m-d');
-        $currentUserBookings = Booking::select('dentist', 'type_of_appointment', 'date_of_appointment', 'time_of_appointment')
+        $currentUserBookings = Booking::leftJoin('dentist', 'dentist.id', '=', 'dentist_id')
+            ->select('dentist.d_first_name', 'type_of_appointment', 'date_of_appointment', 'time_of_appointment')
             ->where('user_id', Auth::user()->id)
             ->where('date_of_appointment', '>=', $date)
-            ->get();
+            ->orderBy('date_of_appointment', 'asc')
+            ->paginate(10);
+
 
         return view('home', compact('currentUserBookings'));
     }
-
 }

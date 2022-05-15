@@ -20,10 +20,16 @@
                 </div>
             </div>
 
+            @if (session('status'))
+                <h6 class="alert alert-success">{{ session('status') }}</h6>
+            @endif
+
             <table class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                    <th>Patient Name</th>
+                    <th>Patient First Name</th>
+                    <th>Patient Last Name</th>
+                    <th>Gender</th>
                     <th>Dentist Name</th>
                     <th>Type of Appointment</th>
                     <th>Date of Appointment</th>
@@ -35,8 +41,10 @@
                 <tbody>
                 @foreach ($allBookings as $item)
                     <tr>
-                        <td>{{$item->name}}</td>
-                        <td>{{ $item->dentist }}</td>
+                        <td>{{$item->first_name}}</td>
+                        <td>{{$item->last_name}}</td>
+                        <td>{{$item->gender}}</td>
+                        <td>{{ $item->d_first_name }}</td>
                         <td>{{ $item->type_of_appointment }}</td>
                         <td>{{ $item->date_of_appointment->format('d-m-Y') }}</td>
                         <td>{{ $item->time_of_appointment }}</td>
@@ -45,12 +53,13 @@
                                class="btn btn-primary primary">Edit</a>
                         </td>
                         <td>
-                            <a href="" class="btn btn-danger primary">Delete</a>
+                            <a href="{{url('deleteAdmin/'.$item->id)}}" class="btn btn-danger primary">Delete</a>
                         </td>
                     </tr>
             @endforeach
                 </tbody>
             </table>
+            <span>{{$allBookings->links('pagination::bootstrap-5')}}</span>
         </div>
     </div>
 </div>

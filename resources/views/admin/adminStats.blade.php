@@ -11,7 +11,7 @@
 
                 <div class="card">
                     <div class="card-header container-fluid">
-                        <h4>Customer Statistics</h4>
+                        <h4>Admin Statistics</h4>
                     </div>
                 </div>
 
@@ -39,17 +39,26 @@
 
                                 <!-- Right Side Of Navbar -->
                                 <ul class="navbar-nav ms-auto">
+                                    @if (Route::has('newAdmin'))
+                                        <li class="nav-item">
+                                            <a class="nav-link"
+                                               href="{{ route('newAdmin') }}">{{ __('New Admin') }}</a>
+                                        </li>
+                                    @endif
                                 </ul>
                             </div>
                         </div>
                     </nav>
                 </div>
+
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Last Created Admin was:</h5>
-                                <p class="card-text">
+                                @isset($newestAdmin)
+                                <p class="card-text">{{$newestAdmin->first_name}}
+                                @endisset
                             </div>
                         </div>
                     </div>
@@ -58,6 +67,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Admin added in the last month:</h5>
+                                <p class="card-text">{{$lastMonthA}}
                             </div>
                         </div>
                     </div>
@@ -66,7 +76,8 @@
                 <table class="table table-bordered table-striped">
                     <thead>
                     <tr>
-                        <th> Name</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
                         <th>Email</th>
                         <th>Edit</th>
                     </tr>
@@ -74,7 +85,8 @@
                     <tbody>
                     @foreach ($allAdmin as $item)
                         <tr>
-                            <td>{{$item->name}}</td>
+                            <td>{{$item->first_name}}</td>
+                            <td>{{$item->last_name}}</td>
                             <td>{{ $item->email }}</td>
                             <td>
                                 @if($item->id == Auth::user()->id)
@@ -86,6 +98,7 @@
                     @endforeach
                     </tbody>
                 </table>
+                    <span>{{$allAdmin->links('pagination::bootstrap-5')}}</span>
             </div>
         </div>
     </div>

@@ -21,9 +21,9 @@
 
 <div class="container-fluid">
     <div class="row flex-nowrap">
-        <div class="col-auto col-md-6 col-xl-2 px-sm-2 px-0 bg-secondary">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-secondary">
             <div class="text-white">
-                <a href="/adminView" class=" text-white ">
+                <a href="/adminView" class=" text-white">
                     <span class="navbar-toggler-icon">Menu</span>
                 </a>
                 <ul id="menu">
@@ -48,13 +48,28 @@
                         </a>
                     </li>
                     <li>
-                        <a href="dentist_two"  class="nav-link px-0 text-white">
-                            Dentist Holly
+                        <a href="dentist_one"  class="nav-link px-0 text-white">
+                            Dentist {{$dentist1Name->d_first_name}}
                         </a>
                     </li>
                     <li>
-                        <a href="dentist_one"  class="nav-link px-0 text-white">
-                            Dentist John
+                        <a href="dentist_two"  class="nav-link px-0 text-white">
+                            Dentist {{$dentist2Name->d_first_name}}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="dentist_three"  class="nav-link px-0 text-white">
+                            Dentist {{$dentist3Name->d_first_name}}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="monthly"  class="nav-link px-0 text-white">
+                            Monthly Statistics
+                        </a>
+                    </li>
+                    <li>
+                        <a href="yearly"  class="nav-link px-0 text-white">
+                            Yearly Statistics
                         </a>
                     </li>
 
@@ -64,13 +79,13 @@
                         </a>
                         <ul class="collapse nav flex-column " id="submenu1">
                             <li>
-                                <a href="#" class="nav-link px-0">  Chart 1</a>
+                                <a href="chart_one" class="nav-link px-0">  Chart 1</a>
                             </li>
                             <li>
-                                <a href="#" class="nav-link px-0">Chart 2</a>
+                                <a href="chart_two" class="nav-link px-0">Chart 2</a>
                             </li>
                             <li>
-                                <a href="#" class="nav-link px-0"> Chart 3</a>
+                                <a href="chart_three" class="nav-link px-0"> Chart 3</a>
                             </li>
                         </ul>
                     </li>
@@ -78,7 +93,7 @@
                 <hr>
                 <div class="dropdown pb-4">
                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" >
-                        {{Auth::user()->name}}
+                        {{Auth::user()->first_name}}
                     </a>
                     <ul class="dropdown-menu dropdown-menu">
                         <li><a class="dropdown-item" href="#">Profile</a></li>

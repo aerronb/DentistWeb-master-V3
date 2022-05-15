@@ -28,7 +28,7 @@
 
                 <div class="card">
                     <div class="card-header container-fluid">
-                        <h4>Admin Home View</h4>
+                        @yield('header1')
                     </div>
                 </div>
 
@@ -47,7 +47,6 @@
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <!-- Left Side Of Navbar -->
                                 <ul class="navbar-nav me-auto">
-                                    @yield('navbar1')
                                 </ul>
 
                                 <!-- Right Side Of Navbar -->

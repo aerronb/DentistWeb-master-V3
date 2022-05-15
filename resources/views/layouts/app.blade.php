@@ -57,18 +57,19 @@
                     @else
                         @if (Route::has('bookings'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('bookings') }}">{{ __('Book a New Appointment') }}</a>
+                                <a class="nav-link"
+                                   href="{{ route('bookings') }}">{{ __('Book a New Appointment') }}</a>
                             </li>
                         @endif
-                            @if (Route::has('bookings'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('myBookings') }}">{{ __('Your Bookings') }}</a>
-                                </li>
+                        @if (Route::has('bookings'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('myBookings') }}">{{ __('Your Bookings') }}</a>
+                            </li>
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name}}
+                                    {{ Auth::user()->first_name}}
                                 </a>
                                 @endif
 
@@ -79,13 +80,14 @@
                                         {{ __('Logout') }}
                                     </a>
 
-                                        /*ADD PROFILE PAGE HERE
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                              class="d-none">
-                                            @csrf
-                                        </form>
-                                    </div>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                          class="d-none">
+                                        @csrf
+                                    </form>
+                                    <a href="userProfile"  class="dropdown-item">
+                                        {{__('Edit Profile')}}
+                                    </a>
+                                </div>
                             </li>
                         @endguest
                 </ul>

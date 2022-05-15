@@ -24,7 +24,8 @@
                 <table class="table table-bordered table-striped">
                     <thead>
                     <tr>
-                        <th>Patient Name</th>
+                        <th>Patient First Name</th>
+                        <th>Patient Last Name</th>
                         <th>Dentist Name</th>
                         <th>Type of Appointment</th>
                         <th>Date of Appointment</th>
@@ -36,17 +37,18 @@
                     <tbody>
                     @foreach ($returnSearch as $item)
                         <tr>
-                            <td>{{$item->name}}</td>
-                            <td>{{ $item->dentist }}</td>
+                            <td>{{$item->first_name}}</td>
+                            <td>{{$item->last_name}}</td>
+                            <td>{{ $item->d_first_name }}</td>
                             <td>{{ $item->type_of_appointment }}</td>
                             <td>{{ $item->date_of_appointment }}</td>
                             <td>{{ $item->time_of_appointment }}</td>
                             <td>
                                 <a href="{{ url('editBooking/'.$item->id) }}"
-                                   class="btn btn-primary disabled">Edit</a>
+                                   class="btn btn-primary">Edit</a>
                             </td>
                             <td>
-                                <a href="" class="btn btn-danger disabled">Delete</a>
+                                <a href="" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     @endforeach

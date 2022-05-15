@@ -11,7 +11,7 @@
 
             <div class="card">
                 <div class="card-header container-fluid">
-                    <h4>Admin Home View</h4>
+                    <h4>Admin Home</h4>
                 </div>
             </div>
 
@@ -49,7 +49,7 @@
                 <div class="col-sm-6">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Number of all users:</h5>
+                            <h5 class="card-title">Number of All Patients:</h5>
                             <p class="card-text">{{$allUsersC}}
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                 <div class="col-sm-6">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Amount of Admin Users:</h5>
+                            <h5 class="card-title">Number of Admin Users:</h5>
                             <p class="card-text">{{$allAdminC}}
                         </div>
                     </div>
@@ -71,7 +71,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Earliest Appointment Today:</h5>
                             @isset($earliestAppQ)
-                                <p class="card-text">Appointment with: <b>{{$earliestAppQ->name}}</b> on:
+                                <p class="card-text">Appointment with: <b>{{$earliestAppQ->first_name}}</b> on:
                                     <b>{{$earliestAppQ->date_of_appointment->format('d-M-Y')}}</b> at:
                                     <b>{{$earliestAppQ->time_of_appointment}} </b>
                             @endisset
@@ -84,7 +84,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Latest Appointment Today:</h5>
                             @isset($latestAppQ)
-                                <p class="card-text">Appointment with: <b>{{$latestAppQ->name}}</b> on:
+                                <p class="card-text">Appointment with: <b>{{$latestAppQ->first_name}}</b> on:
                                     <b>{{$latestAppQ->date_of_appointment->format('d-M-Y')}}</b> at:
                                     <b>{{$latestAppQ->time_of_appointment}} </b>
                             @endisset
